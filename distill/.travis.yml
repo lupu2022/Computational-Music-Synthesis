@@ -1,0 +1,18 @@
+language: node_js
+node_js:
+  - "node" # latest version
+cache:
+  directories:
+    - node_modules
+script:
+  - npm run build
+  - npm test
+deploy:
+  provider: releases
+  api_key: $GITHUB_OAUTH_TOKEN
+  file_glob: true
+  file: dist/*
+  skip_cleanup: true
+  overwrite: true
+  on:
+    tags: true
