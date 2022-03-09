@@ -69,11 +69,11 @@ distill-header .nav a {
 </style>
 <div class="content">
   <a class="logo" href="/">
-    Teaonly的个人网站
+    计算音乐合成（ Computational Music Synthesis 中文翻译 ）
   </a>
   <nav class="nav">
-    <a href="/">文章</a>
-    <a href="/about/">关于</a>
+    <a href="/">目录</a>
+    <a href="https://cs.gmu.edu/~sean/book/synthesis/">源站</a>
   </nav>
 </div>
 `;

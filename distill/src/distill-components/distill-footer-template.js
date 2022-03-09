@@ -54,7 +54,7 @@ export const footerTemplate = `
 <div class='footer-container'>
   <a class="logo"> 联系方式</a>
   <div class="nav">
-    <a href="https://github.com/teaonly">GitHub</a>
+    <a href="https://github.com/lupu2022">GitHub</a>
     <a href="https://weibo.com/teaonly">微博</a>
     <a href="https://twitter.com/achangzhou">Twitter</a>
   </div>
