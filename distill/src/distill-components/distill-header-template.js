@@ -72,7 +72,7 @@ distill-header .nav a {
     计算音乐合成（ Computational Music Synthesis 中文翻译 ）
   </a>
   <nav class="nav">
-    <a href="/">目录</a>
+    <a href="https://lupu2022.github.io/Computational-Music-Synthesis/">目录</a>
     <a href="https://cs.gmu.edu/~sean/book/synthesis/">源站</a>
   </nav>
 </div>
