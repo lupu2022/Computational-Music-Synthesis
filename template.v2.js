@@ -8990,11 +8990,12 @@ distill-header .nav a {
 </style>
 <div class="content">
   <a class="logo" href="/">
-    计算音乐合成（ Computational Music Synthesis 中文翻译 ）
+    计算音乐合成（ Computational Music Synthesis , Chinese traslation ）
   </a>
   <nav class="nav">
     <a href="https://lupu2022.github.io/Computational-Music-Synthesis/">目录</a>
-    <a href="https://cs.gmu.edu/~sean/book/synthesis/">源站</a>
+    <a href="https://github.com/lupu2022/Computational-Music-Synthesis">GitHub</a>
+    <a href="https://cs.gmu.edu/~sean/book/synthesis/">源书网站</a>
   </nav>
 </div>
 `;
