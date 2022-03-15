@@ -187,7 +187,49 @@
     </p>
     
     <p><d-figure><img src="images/figure_7.png" alt="Figure 7" width="30%" /></d-figure> </p>
+ 
+    <li><b>单音（voice）</b></li>
+    <p>
+        作为减法模拟合成器，Prophet'08 型号的一个单音的电路结构是非常典型的。8个单音中的每一个都配备2个振荡器（oscillators），负责产生声音波形。
+        这些振荡器可以组合成一个单独的声音波形，这些声波被直接送入到滤波器当中。
+        滤波器是一种修改声音音调数量的装置：Prophet'08 型号配备了一个低通滤波器，用来压制声音信号中的高频部分，让声音听起来更加平淡（duller）或者醇厚（mellow）。
+        滤波之后的声音被送入到一个放大器当中，用来调制声音的音量。
+        所有当前单声最终被加在一起，结果作为声音发出。
+    </p>
+    <p>
+        振荡器，组合器（combiner），滤波器以及放大器，都拥有许多参数。举例来说，振荡器可以被另外一个振荡器调制
+        ；组合器可以调制振荡器音量之间的比重；低通滤波器的截至频率（从这个点开始，频率被压制）也可以进行调整；放大器的音量范围也是进行修改的。
+    </p>
 
+    <li><b>调制器（Modulation）</b></li>
+    <p>
+        合成器的参数可以通过手动调制，但也可以把参数绑定到某一个调制器中，随着演奏的音符的时间而改变，用来创造更加丰富的声音。
+        比如，滤波器和放大器都可以通过一个 DADSR 封调来修改他们的截至频率或者音量范围。
+        一个 DADSR （Delay/Attack/Decay/Sustain/Release）封调可以理解为一个简单函数曲线，但音符开始演奏的时候，曲线从0开始，
+        接着延续一点的时间（维持0），接下来在一定的时间内上升（Attack）到某个最大值，然后在一定时间内下降（Decay）到一个不同的值（sustain）
+        。接着一直维持这个 sustain 值，直到这个音符的按键抬起不再按下，接下在一定的时间内恢复到0的位置。
+        这允许（举例来说）声音突然变大，或者一开始非常洪亮，然后小下去，最后在它被释放后慢慢听不到。
+    </p>
+
+    <p>
+        除了两个专用的封调器之外，Prophet'08 还有一个额外的封调器，可以分配给不同的参数，它还有四个低频振荡器或 LFO，也可以这样分配。
+        LFO 就是一个在 0 和 1 之间缓慢振荡的函数（或在 -1 和 1 之间）。比如，当连接到声音的音量时，LFO 会引起颤音。
+        Prophet'08 还有一个基本的步进音序器，可以以一定的频率用来循环演奏或者修改参数，也可以按照编排的模式来进行。
+        琶音器（arpeggiator）可以产生一个重复按键，按照指定的频率或者模式。
+        通过 Prophet'08 的调制矩阵，这些不同调制器可以分配到不同的参数去。
+    </p>
+
+    <li><b>Patch 和 MIDI</b></li>
+        The parameters which collectively define the sound the Prophet ’08 is making
+        are called a patch. The Prophet ’08 is a stored patch synthesizer, meaning that after you have
+        programmed the synthesizer to produce a sound you like, you can save patches to memory; and
+        you can recall them later. A patch can also be transferred to or from a computer program, or another
+        Prophet ’08, over a MIDI cable. MIDI can also be used to play or program a Prophet ’08 remotely
+        from another keyboard controller, computer, or synthesizer. Because you can play a Prophet ’08
+        remotely via another keyboard, you don’t need the Prophet ’08’s keyboard at all, and indeed there
+        exists a keyboard-less standalone tabletop or desktop module version of the synthesizer.
+
+    
 </d-article>
 
 <d-appendix> 
