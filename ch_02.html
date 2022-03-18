@@ -3,7 +3,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="widistillh=device-widistillh, initial-scale=1">
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-    <title>0. 前言</title> 
+    <title>2. 声音的表示</title> 
 
     <script src="template.v2.js"></script>
 </head>
@@ -24,7 +24,7 @@
         时间函数并不是表示声波的唯一方法。许多的音乐合成器和效果装置都把声波当作时间函数的，我们人类也习惯于这样思考声音。
         但是事实上，这并不是一个特别好的思考声音的方法，因为我们的大脑并没有接收声波。
     </p>
-    <p><d-figure><img src="images/figure_8.png" alt="Figure 8" width="50%" /></d-figure> </p>
+    <p><d-figure><img src="images/figure_8.png" alt="Figure 8" width="40%" /></d-figure> </p>
 
     <p>
         实时上，我们可以认为大脑，每时每刻，都在接收一个不同频率下振幅的数列。这个数列随着时间变化。
@@ -32,7 +32,7 @@
         Figure-9就是一种展示方法，其中数列是图像中垂直的条带，（x 轴是时间）。这种类型的图示，称为频谱图。
     </p>
 
-    <p><d-figure><img src="images/figure_9.png" alt="Figure 9" width="50%" /></d-figure> </p>
+    <p><d-figure><img src="images/figure_9.png" alt="Figure 9" width="40%" /></d-figure> </p>
 
     <p>
         关键的问题是，声波（对任何时变的波来说，都）可以表示为无限多的正弦波之和，每个正弦波有自己的频率，幅值以及相位。
@@ -41,7 +41,16 @@
         这些正弦波被称为 partial，在某种意义上，它们每一个都是最后波形的一部分。
     </p>
 
-    <p><d-figure><img src="images/figure_10.png" alt="Figure 10" width="50%" /></d-figure> </p>
+    <p><d-figure><img src="images/figure_10.png" alt="Figure 10" width="40%" /></d-figure> </p>
+
+    <p>
+        假如我们先不考虑相位，我们可以根据 Figure-11 中的每个 partial 的幅值，画出一个条形图，这时 x 轴表示频率，而不是时间。
+        Figure-11就是这样的条形图。假如，我们按照这样的方式来看待声音，那么这就叫做频域描述方法（因为 x 轴表示的是频率）。
+        假如，我们按照经典的方法（Figure-10），这时 x 轴表示的是时间，那么这就叫做时域描述方法。
+    </p>
+
+    <p><d-figure><img src="images/figure_11.png" alt="Figure 11" width="40%" /></d-figure> </p>
+
 
 </d-article>
 
