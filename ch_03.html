@@ -1,0 +1,85 @@
+<!doctype html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="widistillh=device-widistillh, initial-scale=1">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <title>3. 加法合成</title> 
+
+    <script src="template.v2.js"></script>
+</head>
+
+<body>    
+    <distill-header></distill-header>
+    <d-title>
+        <h1>3. 加法合成</h1>
+    </d-title>
+<d-article>
+    <p>
+        加法合成器通过生成和修改一大量的分音——拥有不同的幅度、频率以及相位（有时）—— 并且将它们加起来得到最终的声音。
+        加法合成器是一种最自然和最直接的合成方法，然后由于它需要大量的参数（所有的幅度、频率以及相位值等），因此不是那么常见。
+        开发一种使用起来不乏味的加法合成器并不容易。
+        与其他技术相比，加法合成器中对所有这些正弦波进行求和，带来的高计算成本也限制了它的可用性。
+    </p>
+
+    <h2>3.1 加法合成器的历史</h2>
+    <p>
+        由于加法合成器的原理简单，很容易成为最古老的音乐合成形式。
+        如果我们放宽它的定义，允许将累加正弦波之外的其他行驶，它的历史可以追溯到更远的时间。
+    </p>
+    <p>
+        管风琴制造商早就了解到，同时演奏多个管道对一个音符的影响，每个音符都有自己的一组分音，以产生最终的混合声音。 
+        管风琴通常被组织为一组管道（或 stop ），每个音符一组，这可以产生具有特定音色的音符。 
+        如 Figure-18 所示，stop 有许多不同的形状，由不同的材料制成，特别是钢和木头。
+        特定种类的完整的一组 stop, 一个音符对应一组，被称为管风琴的级（ rank ） 。 
+    </p>
+    <p><d-figure><img src="images/figure_18.png" alt="Figure 18" width="30%" /></d-figure> </p>
+    <p>
+        高级的管风琴有许多的级（ rank ）。
+        管风琴在演奏一个音符的时，为了从一个级中选择一个Stop，需要拔出类似拉杆或者旋钮的控制装置。
+        通过拔出合适的拉杆，管风琴可以立刻为了同一个音符演奏许多级的声音；事实上一些 rank 设计上就是同时奏响多个同级的管道，用来响应单独一个音符的演奏（用管风琴的术语来说，这个概念叫做混合）。
+        如果你想大力出奇迹，同时演奏所有 rank 的声音，只需要拔出所有拉杆：用管风琴的话说就是“ to pull out all the stops ”。
+    </p>
+
+    <p>
+        早期的机电合成器大都是加法合成器，主要使用的是音调轮（或者其他类似的装置）。
+        音调轮最初由 Hermann von Helmholtz 设计发明，后续由 Rudolf Koenig 进行改进（Figure-19），这是一种带齿的金属圆盘装或者鼓装的装置。
+        音调轮旁边固定放置一电磁线圈，当音调轮匀速旋转的时候，金属轮边缘的齿状外缘（Figure-20）会反复靠近或者远离磁场，
+        这会产生一个变化的感应电流，进而生成一个波动的电信号
+        <d-footnote id="1">
+            这个电磁感应的原理与电吉他中的拾音器类似。
+        </d-footnote>。。
+        我们可以通过把单个的音调轮的声音混合起来，制作一个简单的加法合成器。
+    </p>
+
+    <p><d-figure><img src="images/figure_19.png" alt="Figure 19" width="30%" /></d-figure> </p>
+    <p><d-figure><img src="images/figure_20.png" alt="Figure 20" width="30%" /></d-figure> </p>    
+    <p>
+        历史上第一个出名的音乐合成器，是由 Thaddeus Cahill 出品的电风琴（Telharmonium ），该款产品使用了累加音调轮的方法，因此可以算作一种加法合成器。
+        这个电风琴的背后的想法是，一个演奏者可以产生一个歌曲的电信号，这个电信号可以通过立刻通过广播或者电话线传到广大的听众哪里。
+        Figure-21 描述的就是 Telharmonium 当时的辉煌，包括左下角的音调轮。
+    </p>
+    <p><d-figure><img src="images/figure_21.png" alt="Figure 21" width="80%" /></d-figure> </p>    
+
+    Tonewheels later formed the sound-generation mechanism 
+    (along with the famous Leslie rotating speaker) of
+    the Hammond Organ: and it too worked using additive
+    synthesis. The Hammond Organ sported nine drawbars
+    which specified the amplitudes of nine specific partials
+    ranging in frequency from one octave below the fundamental 
+    to three octaves above. These drawbars were linked to
+    tonewheels which produced the final sound
+
+    <p>
+        
+    </p>
+
+</d-article>
+
+<d-appendix> 
+    <d-footnote-list></d-footnote-list>    
+    <d-citation-list></d-citation-list>       
+</d-appendix>
+
+<distill-footer></distill-footer>
+
+</body>
