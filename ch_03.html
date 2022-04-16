@@ -207,7 +207,7 @@
         <b>注意</b> ，<d-math>A^{(t)}</d-math>为0时，插值将推动<d-math>A_i</d-math>逼近<d-math>A^{(t)}</d-math>，你会发现<d-math>A_i</d-math>
         总是停留在极小的浮点小数范围内，对很多编程语言来说，计算这些极小的浮点数是很慢的。
         你需要检测来是否解决这些极小值，并且将 <d-math>A^{(t)}</d-math> 设置为0。
-        例如，假如 <d-math>A_i^{(t)} \less s </d-math> 并且 <d-math>\delta \less s</d-math>，s 比极小值稍大一些，那么直接设置<d-math>A_i</d-math>为0。
+        例如，假如 <d-math>A_i^{(t)} \le s </d-math> 并且 <d-math>\delta \le s</d-math>，s 比极小值稍大一些，那么直接设置<d-math>A_i</d-math>为0。
     </p>
 
     <li><b>使用分音的阵列生成声音样本</b></li>
@@ -235,8 +235,50 @@
     </ol>
 
     <p>
-
+        声音合成组件维护着一组正弦波发生<d-math>G_1...G_N</d-math>。每个发生器都保存又当前的瞬时相位 <d-math>x_i</d-math>。
+        我们用<d-math>\Delta t</d-math>来表示两次采样之间的间隔时间，例如，44.1k采样率下的间隔为1/44100秒。
+        每个间隔下，各个生成器<d-math>G_i</d-math>，根据ID i找到自己对应的分音四元组 <d-math>(i,f,a,p)</d-math>。
+        发生器根据对应的频率，向前增加相位值 <d-math>x_i</d-math> ：
+        
+        <d-math block="">
+            x_i^{(t)} \leftarrow x_i^{(t-1)} + f_i \Delta t 
+        </d-math>
     </p>
+
+
+    <p>
+        我们假设我们的波形对应的相位变化周期，xi = 0...1 。
+        因为单独一个分音对应的信号是周期的，把 xi 设置为0到1的范围是有帮助的。
+        因此，当它大于 1 时，我们只需减去 1 以将其重新封装回该范围。
+        这样做一个重要原因是，考虑到计算机的浮点数值精度，高值 xi 将开始出现分辨率问题。
+        所以可以这样表示：
+       
+        <d-math block="">
+            x_i^{(t)} \leftarrow (x_i^{(t-1)} + f_i \Delta t ) \, mod \, 1
+        </d-math>
+    
+    </p>
+
+    <p>
+        就我们的目的而言，mod 1 与“继续减去 1 直到值在 0...1 范围内，不包括 1”是一样的。
+        在 Java 中，x mod 1（对于正 x，这是我们的例子）很容易实现为 x = x - (int) x; 
+        一旦对每个 xi 完成此操作，我们只需通过相位调整所有正弦波，将它们乘以它们的幅度，然后将它们相加。
+        请记住，正弦波的周期为 0...2π，因此我们需要相应地调整周期范围。 所以最终样本定义为：
+        <d-math block="">
+            \sum_i sin(2 \pi x_i^{(t)}+p_i) * a_i 
+        </d-math>
+        
+        我们可能会将最终结果与增益（音量）相乘，但是基本内容如此。
+    </p>
+
+    <p>
+        <b>正弦波近似：</b> 加法合成的最大成本是正弦波的生成和求和。 
+        不要使用内置的 sin 函数，它的成本很高。 用一个快速查找表来近似它：  
+    </p>
+
+    <p><d-figure><img src="images/algorithm_2_3.png" alt="Algorithm 2&3" width="80%" /></d-figure> </p>
+
+    
 
 </d-article>
 
